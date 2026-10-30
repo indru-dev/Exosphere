@@ -5,7 +5,15 @@ add_library(OGRE STATIC
   $<TARGET_OBJECTS:Graphics>
 )
 
+target_link_libraries(OGRE
+  PUBLIC
+    GLAD
+    glfw3
+)
+
 target_include_directories(OGRE
-  PRIVATE
+  PUBLIC
     "${CMAKE_SOURCE_DIR}/src"
+    "${CMAKE_SOURCE_DIR}/tools/glad/include"
+    "${CMAKE_SOURCE_DIR}/tools"
 )

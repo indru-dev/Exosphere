@@ -31,7 +31,7 @@ void IRuntime::SignalClose() {
     current->SignalClose();
 }
 
-void AssignCurrentRuntime(Runtime& rt) {
+void woah::AssignCurrentRuntime(Runtime& rt) {
     current = &rt;
 }
 
