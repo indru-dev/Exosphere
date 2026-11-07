@@ -21,13 +21,15 @@ public:
 };
 
 class IRuntime {
+private:
+    static Runtime* rt;
+
 public:
     bool ShouldClose();
     void SignalClose();
 
 };
 
-void AssignCurrentRuntime(Runtime&);
 
 }
 

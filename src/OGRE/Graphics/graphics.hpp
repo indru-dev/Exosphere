@@ -2,9 +2,12 @@
 
 #include <glad/glad.h>
 #include <color/color.hpp>
+#include <vector/vector.hpp>
 
 
 namespace ege::OGRE {
+
+void GetShaderiv(GLuint);
 
 class Shape {
 protected:
@@ -15,6 +18,11 @@ protected:
     const char* fsSource;
 
     virtual void Recompile() = 0;
+
+    Vector2f position;
+    Vector2f size{1, 1};
+
+    GLint sizeLoc;
 
 public:
     virtual ~Shape() = default;
@@ -31,9 +39,10 @@ public:
 class Triangle : public Shape {
 private:
     void Recompile() override;
+    void InitializeGL();
 
 public:
-    Triangle();
+    Triangle(Vector2f);
 
     void Draw() override;
     void Clean() override;

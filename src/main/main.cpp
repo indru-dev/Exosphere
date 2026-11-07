@@ -11,6 +11,7 @@ using namespace ege;
 // Declarations
 
 Runtime rt;
+Runtime* IRuntime::rt = rt;
 CWindow cwin{{800, 600}, "Exosphere", 120};
 Window window;
 
@@ -18,13 +19,12 @@ Window window;
 
 int main() {
 
-    AssignCurrentRuntime(rt);
     rt.Initialize();
     window.Initialize(cwin);
 
     // Exec
 
-    OGRE::Triangle triangle{};
+    OGRE::Triangle triangle({200, 200});
 
     // Loop
     while (!rt.ShouldClose()) {

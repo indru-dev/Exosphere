@@ -1,3 +1,6 @@
 build/
+bin/
+.cache/
+source.zip
 .clangd
 glad.zip

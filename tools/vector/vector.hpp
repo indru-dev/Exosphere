@@ -8,7 +8,6 @@ struct Vector2 {
     T x;
     T y;
 
-    Vector2() = default;
     Vector2(T X = 0, T Y = 0) : x(X), y(Y) {};
 
 };

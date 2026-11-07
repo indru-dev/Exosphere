@@ -2,8 +2,6 @@
 
 using namespace woah;
 
-Runtime* current;
-
 void Runtime::Initialize() {
     if(state == CWOAH::OFF) state = CWOAH::ON;
 }
@@ -24,14 +22,10 @@ void Runtime::SignalClose() {
 }
 
 bool IRuntime::ShouldClose() {
-    return current->ShouldClose();
+    return IRuntime::rt->ShouldClose();
 }
 
 void IRuntime::SignalClose() {
-    current->SignalClose();
-}
-
-void woah::AssignCurrentRuntime(Runtime& rt) {
-    current = &rt;
+    IRuntime::rt->SignalClose();
 }
 
